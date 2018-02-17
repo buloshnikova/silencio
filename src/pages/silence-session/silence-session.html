@@ -1,0 +1,22 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'page.silence.session' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+
+  <button *ngIf="!_session.active_session" ion-button block color="danger" outline class="session-button" (click)="startSession()">{{ 'button.start_session' | translate }}</button>
+
+  <button *ngIf="_session.active_session" ion-button block color="danger" class="session-button" (click)="stopSession()">{{ 'button.stop_session' | translate }}</button>
+
+  <div class="timer-label">{{ noiseLevel | number: '2.0-0' }}</div>
+
+</ion-content>

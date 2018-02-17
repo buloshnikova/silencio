@@ -1,0 +1,40 @@
+{
+  "label": {
+    "email": "Email address",
+    "password": "Password",
+    "name": "Name",
+    "password": "Password",
+    "confirm_password" : "Confirm password",
+    "title" : "Title",
+    "author_name": "Author",
+    "pages": "Pages"
+  },
+  "button" : {
+    "login" : "Login",
+    "register" : "Register",
+    "new_registration" : "New registration",
+    "forgotten_password" : "Forgotten password?",
+    "submit" : "Submit",
+    "add_book": "Add new book",
+    "edit": "Edit",
+    "delete": "Delete",
+    "start_session" : "Start Session",
+    "stop_session" : "Stop Session"
+  },
+  "page" : {
+    "login" : "Login",
+    "logout" : "Logout",
+    "register" : "New registration",
+    "forgotten_password" : "Password recovery",
+    "profile" : "Profile",
+    "silence" : {
+      "session" : "Silence Session"
+    },
+    "books" : {
+      "list" : "My books",
+      "add": "Add book",
+      "edit" : "Edit book",
+      "preview": "Preview"
+    }
+  }
+}

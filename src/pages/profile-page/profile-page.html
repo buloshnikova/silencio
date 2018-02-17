@@ -1,0 +1,73 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'page.profile' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card *ngIf="user">
+
+    <ion-row>
+      <ion-col col-25>{{ 'label.name' | translate }}:</ion-col>
+      <ion-col col-75>{{ user.name }}</ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-25>{{ 'label.email' | translate }}:</ion-col>
+      <ion-col col-75>{{ user.email }}</ion-col>
+    </ion-row>
+
+  </ion-card>
+
+  <ion-list *ngIf="_bluetooth.lists">
+    <ion-card *ngFor="let device of _bluetooth.lists">
+      <ion-row>
+        <ion-col col-25>Name:</ion-col>
+        <ion-col col-75>{{ device.name }}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-25>Class:</ion-col>
+        <ion-col col-75>{{ device.class }}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-25>ID:</ion-col>
+        <ion-col col-75>{{ device.id }}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-25>Address:</ion-col>
+        <ion-col col-75>{{ device.address }}</ion-col>
+      </ion-row>
+      <ion-row>
+        <button
+          *ngIf="!device.isConnected"
+          ion-button
+          block
+          color="danger"
+          outline
+          class="session-button" (click)="connectDevice(device)">Connect</button>
+
+        <button
+          *ngIf="device.isConnected"
+          ion-button
+          block
+          color="danger"
+          class="session-button" (click)="disconnectDevice(device)">Disconnect</button>
+      </ion-row>
+      {{_bluetooth.connection_status}}
+      {{_bluetooth.connection_error}}
+
+    </ion-card>
+  </ion-list>
+
+
+</ion-content>
+
+
+
