@@ -88,4 +88,7 @@
     <engine name="android" spec="~7.0.0" />
     <allow-navigation href="http://10.100.102.2:8100" />
     <allow-navigation href="http://10.100.102.4:8100" />
+    <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
+    </plugin>
 </widget>

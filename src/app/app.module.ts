@@ -13,6 +13,7 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {DBMeter} from '@ionic-native/db-meter';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
+import { Geolocation } from '@ionic-native/geolocation';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
@@ -86,7 +87,8 @@ export function createTranslateLoader(http: Http) {
     SessionService,
     BluetoothSerial,
     BluetoothConnectionProvider,
-    AngularFireDatabase
+    AngularFireDatabase,
+    Geolocation
   ]
 })
 export class AppModule {}

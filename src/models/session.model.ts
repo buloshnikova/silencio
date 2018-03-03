@@ -1,8 +1,11 @@
 export class SessionModel {
 
-  public device_guid?: number;
-  public period_guid?: number;
-  public location: any;
-  public timestamp: number;
+  public session_guid?: string;
+  public name: string;
+  public location: {latitude: number, longitude: number};
+  public start_time: number;
+  public end_time: number;
+  public value: number;
+
 
 }

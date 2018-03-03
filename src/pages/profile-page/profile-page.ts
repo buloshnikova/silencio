@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import {ProtectedPage} from '../protected-page/protected-page';
 import {Storage} from '@ionic/storage';
+import 'rxjs/add/operator/map';
 
 import {UserModel} from '../../models/user.model';
 import { BluetoothConnectionProvider } from '../../providers/bluetooth-connection-service';

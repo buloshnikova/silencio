@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
-
+import { AlertController } from "ionic-angular";
 
 /*
   Generated class for the BluetoothConnectionProvider provider.
@@ -19,7 +19,8 @@ export class BluetoothConnectionProvider {
   public connection_error: string = "";
 
   constructor(public http: Http,
-              private bluetoothSerial: BluetoothSerial) {
+              private bluetoothSerial: BluetoothSerial,
+              private alertCtrl:AlertController) {
 
     this.getAlBluetoothDevices();
 
@@ -64,22 +65,42 @@ export class BluetoothConnectionProvider {
   connectDevice(device) {
     console.log(device.address);
 
-
-    this.bluetoothSerial.connect(device.address).subscribe((data)=>{
+    this.bluetoothSerial.connect(device.address).subscribe((data) => {
       device.isConnected = true;
+      this.connection_error = '';
       this.connection_status = 'Bluetooth connection: ' + data;
-      //this.bluetoothSerial.write("255,1,1");
-    },error=>{
-      this.connection_error = 'Error: ' + error;
-    });
 
+      this.bluetoothSerial.isConnected().then((data) => console.log(data));
+
+      this.alertCtrl.create({
+        title: "Device " + device.name + " is connected",
+        buttons: ["Close"]
+      }).present();
+    }, error => {
+      device.isConnected = false;
+      this.connection_status = '';
+      this.connection_error = 'Error: ' + error;
+
+      this.alertCtrl.create({
+        title: "Error while connecting to " + device.name,
+        subTitle: error,
+        buttons: ["Close"]
+      }).present();
+    });
   }
 
   disconnectDevice(device) {
+
     this.bluetoothSerial.disconnect();
     device.isConnected = false;
     this.connection_status = "";
     this.connection_error = "";
+
+    this.alertCtrl.create({
+      title: "Device "  + device.name + " is disconnected",
+      buttons: ["Close"]
+    }).present();
+
   }
 
   // send parameters to the connected bluetooth
