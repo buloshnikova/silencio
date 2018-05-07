@@ -23,3 +23,4 @@ Using this seed project, you'll have a working example of
 * Forgot password
 * Reset password
 * Update user profile
+* Unitests
