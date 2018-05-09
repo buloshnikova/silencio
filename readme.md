@@ -20,7 +20,8 @@ Using this seed project, you'll have a working example of
 
 
 ### ToDo
-* Forgot password
+* Forgot passwords
 * Reset password
 * Update user profile
-* Unitests
+* first test
+* close issue 1
